@@ -1,10 +1,11 @@
-package com.suatkkrer.jetpackpractice
+package com.suatkkrer.jetpackpractice.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.suatkkrer.jetpackpractice.R
 
 class JokeFragment : Fragment() {
 

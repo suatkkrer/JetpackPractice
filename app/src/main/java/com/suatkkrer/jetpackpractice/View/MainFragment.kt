@@ -1,4 +1,4 @@
-package com.suatkkrer.jetpackpractice
+package com.suatkkrer.jetpackpractice.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.suatkkrer.jetpackpractice.View.MainFragmentDirections
+import com.suatkkrer.jetpackpractice.R
 import kotlinx.android.synthetic.main.fragment_main.*
 
 

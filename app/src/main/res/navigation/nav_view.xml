@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.suatkkrer.jetpackpractice.MainFragment"
+        android:name="com.suatkkrer.jetpackpractice.View.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_jokeFragment"
@@ -13,6 +13,6 @@
     </fragment>
     <fragment
         android:id="@+id/jokeFragment"
-        android:name="com.suatkkrer.jetpackpractice.JokeFragment"
+        android:name="com.suatkkrer.jetpackpractice.View.JokeFragment"
         android:label="JokeFragment" />
 </navigation>
