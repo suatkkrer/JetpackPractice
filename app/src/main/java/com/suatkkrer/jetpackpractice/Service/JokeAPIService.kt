@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class JokeAPIService {
 
-    private val BASE_URL = "https://sv443.net/jokeapi/v2"
+    private val BASE_URL = "https://v2.jokeapi.dev/"
 
     private  val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -19,7 +19,7 @@ class JokeAPIService {
 
 
     fun getData(jokeString: String) : Single<List<Jokes>> {
-        return api.getJokes(jokeString)
+        return api.getJokes(jokeString,"single")
     }
 
 

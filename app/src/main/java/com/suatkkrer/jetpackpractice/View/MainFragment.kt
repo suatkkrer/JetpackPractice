@@ -1,10 +1,13 @@
 package com.suatkkrer.jetpackpractice.View
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.Navigation
 import com.suatkkrer.jetpackpractice.Model.Jokes
 import com.suatkkrer.jetpackpractice.R
@@ -22,6 +25,7 @@ class MainFragment : Fragment() {
     private var jokeString = ""
     private val jokeAPIService = JokeAPIService()
     private val disposable = CompositeDisposable()
+    val jokeList = mutableListOf<Jokes>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +46,7 @@ class MainFragment : Fragment() {
 
         firstFragmentButton.setOnClickListener {
 
-            val action = MainFragmentDirections.actionMainFragmentToJokeFragment()
-            Navigation.findNavController(it).navigate(action)
+            getDataFromAPI()
 
         }
 
@@ -70,6 +73,8 @@ class MainFragment : Fragment() {
 
     fun getDataFromAPI(){
 
+
+
         var arrayString = ArrayList<String>()
 
         if (radioButton.isChecked) {
@@ -94,6 +99,9 @@ class MainFragment : Fragment() {
                 arrayString.add("Christmas")
             }
             jokeString = toCSV(arrayString)
+            Log.e("JOKE STRING",jokeString.toString())
+        } else {
+            Toast.makeText(context,"Please select something",Toast.LENGTH_SHORT).show()
         }
 
         disposable.add(
@@ -103,18 +111,25 @@ class MainFragment : Fragment() {
                         .subscribeWith(object : DisposableSingleObserver<List<Jokes>>() {
                             override fun onSuccess(t: List<Jokes>) {
 
+                                jokeList.addAll(t)
+
+                                println(jokeList.size)
+
+                                Log.e("ASDFASDF","ASDGAasdf")
+
+
                             }
 
                             override fun onError(e: Throwable) {
-
+                                    Log.e("ASDFASFD",e.toString())
                             }
 
                         })
 
-
         )
 
     }
+
 
    fun toCSV(array: ArrayList<String>) : String {
 
