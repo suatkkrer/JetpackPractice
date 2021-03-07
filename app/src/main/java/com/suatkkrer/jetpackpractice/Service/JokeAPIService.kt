@@ -18,8 +18,8 @@ class JokeAPIService {
         .create(JokesAPI::class.java)
 
 
-    fun getData() : Single<List<Jokes>> {
-        return api.getJokes()
+    fun getData(jokeString: String) : Single<List<Jokes>> {
+        return api.getJokes(jokeString)
     }
 
 

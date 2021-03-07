@@ -26,7 +26,7 @@
         android:text="Select Category"
         android:layout_marginStart="40dp"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textColor="@android:color/white"
         />
 
 
@@ -47,14 +47,16 @@
         <RadioButton
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
+            android:textColor="@android:color/white"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Any" />
 
         <RadioButton
             android:id="@+id/radioButton2"
+            android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Custom" />
     </RadioGroup>
 
 
@@ -65,7 +67,7 @@
         />
 
     <LinearLayout
-
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -81,25 +83,31 @@
 
         <CheckBox
             android:id="@+id/checkBox"
+            android:enabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:textColor="@android:color/white"
+            android:text="Programming"
             tools:layout_editor_absoluteX="37dp"
             tools:layout_editor_absoluteY="223dp" />
 
         <CheckBox
             android:id="@+id/checkBox2"
+            android:enabled="false"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:text="Miscellaneous"
             tools:layout_editor_absoluteX="156dp"
             tools:layout_editor_absoluteY="221dp" />
 
         <CheckBox
             android:id="@+id/checkBox3"
+            android:enabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBox"
+            android:textColor="@android:color/white"
+            android:text="Dark"
             tools:layout_editor_absoluteX="279dp"
             tools:layout_editor_absoluteY="221dp" />
 
@@ -114,25 +122,31 @@
 
             <CheckBox
                 android:id="@+id/checkBox4"
+                android:enabled="false"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
                 android:layout_height="wrap_content"
-                android:text="CheckBox"
+                android:text="Pun"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="286dp" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
+                android:enabled="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CheckBox"
+                android:textColor="@android:color/white"
+                android:text="Spooky"
                 tools:layout_editor_absoluteX="159dp"
                 tools:layout_editor_absoluteY="288dp" />
 
             <CheckBox
                 android:id="@+id/checkBox6"
+                android:enabled="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CheckBox"
+                android:textColor="@android:color/white"
+                android:text="Christmas"
                 tools:layout_editor_absoluteX="288dp"
                 tools:layout_editor_absoluteY="290dp" />
         </LinearLayout>
