@@ -1,6 +1,7 @@
 package com.suatkkrer.jetpackpractice.Service
 
 import com.suatkkrer.jetpackpractice.Model.Jokes
+import com.suatkkrer.jetpackpractice.Model.NewJokes
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -18,7 +19,7 @@ class JokeAPIService {
         .create(JokesAPI::class.java)
 
 
-    fun getData(jokeString: String) : Single<List<Jokes>> {
+    fun getData(jokeString: String) : Single<NewJokes> {
         return api.getJokes(jokeString,"single")
     }
 

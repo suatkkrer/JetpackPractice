@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.suatkkrer.jetpackpractice.Model.Jokes
 import com.suatkkrer.jetpackpractice.R
 import com.suatkkrer.jetpackpractice.Service.JokeAPIService
+import com.suatkkrer.jetpackpractice.ViewModel.MainViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -23,8 +26,8 @@ import java.lang.StringBuilder
 class MainFragment : Fragment() {
 
     private var jokeString = ""
-    private val jokeAPIService = JokeAPIService()
-    private val disposable = CompositeDisposable()
+    private lateinit var viewModel: MainViewModel
+
     val jokeList = mutableListOf<Jokes>()
 
 
@@ -44,10 +47,18 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+
+
         firstFragmentButton.setOnClickListener {
 
-            getDataFromAPI()
+            viewModel.getDataFromAPI(jokeSelect())
 
+
+        }
+
+        firstFragmentButton2.setOnClickListener {
+            observeLiveData()
         }
 
         radioButton2.setOnClickListener {
@@ -71,9 +82,7 @@ class MainFragment : Fragment() {
 
     }
 
-    fun getDataFromAPI(){
-
-
+    fun jokeSelect() : String  {
 
         var arrayString = ArrayList<String>()
 
@@ -104,31 +113,19 @@ class MainFragment : Fragment() {
             Toast.makeText(context,"Please select something",Toast.LENGTH_SHORT).show()
         }
 
-        disposable.add(
-                jokeAPIService.getData(jokeString)
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(object : DisposableSingleObserver<List<Jokes>>() {
-                            override fun onSuccess(t: List<Jokes>) {
-
-                                jokeList.addAll(t)
-
-                                println(jokeList.size)
-
-                                Log.e("ASDFASDF","ASDGAasdf")
-
-
-                            }
-
-                            override fun onError(e: Throwable) {
-                                    Log.e("ASDFASFD",e.toString())
-                            }
-
-                        })
-
-        )
+        return jokeString
 
     }
+
+    fun observeLiveData() {
+        viewModel.jokeList.observe(viewLifecycleOwner, Observer { jokes ->
+            jokes?.let {
+                Log.e("ASSSSSSSSSSSSSSSSSSSS", it[0].jokeOnly.toString())
+            }
+        })
+    }
+
+
 
 
    fun toCSV(array: ArrayList<String>) : String {
