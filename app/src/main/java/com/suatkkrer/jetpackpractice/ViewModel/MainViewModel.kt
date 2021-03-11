@@ -27,7 +27,7 @@ class MainViewModel : ViewModel() {
                         .subscribeWith(object : DisposableSingleObserver<NewJokes>() {
                             override fun onSuccess(t: NewJokes) {
 
-                                Log.e("ASDFASFD","ASDFFFFFFFF")
+                               // Log.e("ASDFASFD","ASDFFFFFFFF")
                                 jokeList.value = t.listJokes
 
                             }

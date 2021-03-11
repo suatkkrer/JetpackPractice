@@ -10,7 +10,10 @@ import retrofit2.http.Query
 
 interface JokesAPI {
 
+//    @GET("joke/{jokeString}")
+//    fun getJokes(@Path("jokeString") jokeString: String,@Query("type") currentType : String):Single<NewJokes>
+
     @GET("joke/{jokeString}")
-    fun getJokes(@Path("jokeString") jokeString: String,@Query("type") currentType : String):Single<NewJokes>
+    fun getJokes(@Path("jokeString") jokeString: String):Single<NewJokes>
 
 }

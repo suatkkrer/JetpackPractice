@@ -20,7 +20,7 @@ class JokeAPIService {
 
 
     fun getData(jokeString: String) : Single<NewJokes> {
-        return api.getJokes(jokeString,"single")
+        return api.getJokes(jokeString)
     }
 
 
