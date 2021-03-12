@@ -118,11 +118,13 @@ class MainFragment : Fragment() {
     }
 
     fun observeLiveData() {
-        viewModel.jokeList.observe(viewLifecycleOwner, Observer { jokes ->
-            jokes?.let {
-                Log.e("ASSSSSSSSSSSSSSSSSSSS", it[0].jokeOnly.toString())
-            }
-        })
+     //   viewModel.getDataFromAPI()
+
+//        jokeList.observe(viewLifecycleOwner, Observer { jokes ->
+//            jokes?.let {
+//                Log.e("ASSSSSSSSSSSSSSSSSSSS", it[0].jokeOnly.toString())
+//            }
+//        })
     }
 
 
