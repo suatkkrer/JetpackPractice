@@ -6,10 +6,10 @@ data class Jokes(
 
      @SerializedName("category")
      val categoryJokes : String?,
-//     @SerializedName("setup")
-//     val firstJoke : String?,
-//     @SerializedName("delivery")
-//     val secondJoke : String?,
+     @SerializedName("setup")
+     val firstJoke : String?,
+     @SerializedName("delivery")
+     val secondJoke : String?,
      @SerializedName("joke")
      val jokeOnly : String?,
      @SerializedName("error")
