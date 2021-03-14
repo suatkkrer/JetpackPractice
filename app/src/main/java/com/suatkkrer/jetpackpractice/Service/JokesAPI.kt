@@ -11,7 +11,7 @@ interface JokesAPI {
 //    @GET("joke/{jokeString}")
 //    fun getJokes(@Path("jokeString") jokeString: String,@Query("type") currentType : String):Single<NewJokes>
 
-    @GET("joke/{jokeString}")
-    fun getJokes(@Path("jokeString") jokeString: String):retrofit2.Call<List<NewJokes>>
+    @GET("/joke/{jokeString}")
+    fun getJokes(@Path("jokeString") jokeString: String):retrofit2.Call<ArrayList<NewJokes>>
 
 }

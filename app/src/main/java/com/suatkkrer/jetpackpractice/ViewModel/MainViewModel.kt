@@ -19,7 +19,7 @@ class MainViewModel : ViewModel() {
     private val jokeAPIService = JokeAPIService()
     private val disposable = CompositeDisposable()
 
-    private var jokeList : ArrayList<NewJokes>? = null
+    private var jokeList : List<ArrayList<Jokes>>? = null
 
     fun getDataFromAPI(jokeString : String){
 
@@ -45,23 +45,23 @@ class MainViewModel : ViewModel() {
 
      //   )
 
-        jokeAPIService.getData(jokeString).enqueue(object : retrofit2.Callback<List<NewJokes>> {
+        jokeAPIService.getData(jokeString).enqueue(object : retrofit2.Callback<ArrayList<NewJokes>> {
 
 
-            override fun onResponse(call: Call<List<NewJokes>>, response: Response<List<NewJokes>>) {
+            override fun onResponse(call: Call<ArrayList<NewJokes>>, response: Response<ArrayList<NewJokes>>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        jokeList = ArrayList(it)
 
-                        for (jokeModel: NewJokes in jokeList!!) {
-                            println(jokeModel.listJokes[0].jokeOnly)
+                        var jokes = it.map { newJokes ->
+                            newJokes.listJokes
                         }
-
+                        jokeList = jokes
+                        Log.e("asDFASDFASDF",jokeList!![0][0].jokeOnly.toString())
                     }
                 }
             }
 
-            override fun onFailure(call: Call<List<NewJokes>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<NewJokes>>, t: Throwable) {
                 Log.e("ASDFASFD", t.toString())
             }
 
